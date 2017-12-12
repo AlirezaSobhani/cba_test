@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:background="@color/green_background"
+    android:paddingBottom="20dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+
+            <ImageView
+                android:id="@+id/transactional_image_view"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/icon_transactional" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/transactional_image_view"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/account_name_text_view"
+                    style="@style/transactionText.black"
+                    android:layout_marginBottom="2dp"
+                    android:text="Account name"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:id="@+id/account_number_text_view"
+                    style="@style/transactionText.grey"
+                    android:layout_marginTop="2dp"
+                    android:text="0000000 00000000 000"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey_background"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp">
+
+            <TextView
+                android:id="@+id/available_funds_title"
+                style="@style/transactionText.grey"
+                android:paddingBottom="3dp"
+                android:paddingLeft="65dp"
+                android:paddingTop="3dp"
+                android:text="Available funds"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/available_funds_text_view"
+                style="@style/transactionText.black"
+                android:layout_alignParentRight="true"
+                android:paddingBottom="3dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp"
+                android:text="$0"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/account_balance_title"
+                style="@style/transactionText.grey"
+                android:layout_below="@+id/available_funds_title"
+                android:paddingBottom="3dp"
+                android:paddingLeft="65dp"
+                android:paddingTop="3dp"
+                android:text="Account balance"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/account_balance_text_view"
+                style="@style/transactionText.grey"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/available_funds_text_view"
+                android:paddingBottom="3dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp"
+                android:text="$0"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

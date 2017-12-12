@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:background="@color/grey_background"
+    android:orientation="horizontal"
+    android:paddingBottom="17dp"
+    android:paddingRight="15dp"
+    android:paddingTop="17dp">
+
+    <ImageView
+        android:id="@+id/transition_description_location"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_place" />
+
+    <TextView
+        android:id="@+id/transition_description_text_view"
+        style="@style/transactionText.black"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="Wdl ATM CBA ATM CIRCULAR QUAY STATION NSW 221092 AUS" />
+
+    <TextView
+        android:id="@+id/transaction_amount_text_view"
+        style="@style/transactionText.black"
+        android:paddingLeft="20dp"
+        android:text="-$200"
+        android:textStyle="bold" />
+
+</LinearLayout>
