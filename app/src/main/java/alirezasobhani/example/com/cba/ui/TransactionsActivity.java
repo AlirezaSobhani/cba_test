@@ -1,5 +1,6 @@
 package alirezasobhani.example.com.cba.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -11,9 +12,12 @@ import android.view.View;
 import java.util.List;
 
 import alirezasobhani.example.com.cba.R;
+import alirezasobhani.example.com.cba.model.Atm;
+import alirezasobhani.example.com.cba.model.Transaction;
 import alirezasobhani.example.com.cba.model.TransactionData;
 import alirezasobhani.example.com.cba.service.ApiService;
 import alirezasobhani.example.com.cba.service.TransactionsService;
+import alirezasobhani.example.com.cba.service.TransactionsService.GetTransactionsResponseCallback;
 import alirezasobhani.example.com.cba.service.exception.NoConnectivityException;
 import alirezasobhani.example.com.cba.service.exception.UnknownException;
 import alirezasobhani.example.com.cba.utils.ConnectivityUtils;
@@ -22,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class TransactionsActivity extends AppCompatActivity implements TransactionsService.GetTransactionsResponseCallback<TransactionData> {
+public class TransactionsActivity extends AppCompatActivity implements GetTransactionsResponseCallback<TransactionData>, ItemClickListener<Transaction, View> {
 
     @BindView(R.id.activity_transactions_toolbar)
     Toolbar toolbar;
@@ -37,6 +41,7 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
     View progressBar;
 
     private ApiService<TransactionData> transactionsService;
+    private List<Atm> atmList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,16 +67,18 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
         super.onDestroy();
     }
 
+
     @Override
     public void onResponse(TransactionData transactionsData) {
         List<Object> listItems = ListItemGenerator.getListItems(transactionsData);
         if(listItems.size() == 0) {
             onFailed(new UnknownException());
         } else {
+            atmList = transactionsData.getAtms();
             recyclerView.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
             tryAgainButton.setVisibility(View.GONE);
-            TransactionsListAdapter adapter = new TransactionsListAdapter(listItems, transactionsData.getAtms());
+            TransactionsListAdapter adapter = new TransactionsListAdapter(listItems, this);
             recyclerView.setAdapter(adapter);
         }
     }
@@ -97,5 +104,17 @@ public class TransactionsActivity extends AppCompatActivity implements Transacti
                 .setCancelable(false)
                 .create()
                 .show();
+    }
+
+    @Override
+    public void onItemClicked(Transaction transaction, View view) {
+        if (atmList == null) return;
+        for (Atm atm : atmList) {
+            if(transaction.getAtmId().equals(atm.getId())) {
+                Intent intent = new Intent(this, AtmMapActivity.class);
+                intent.putExtra(AtmMapActivity.ATM_KEY, atm);
+                startActivity(intent);
+            }
+        }
     }
 }
