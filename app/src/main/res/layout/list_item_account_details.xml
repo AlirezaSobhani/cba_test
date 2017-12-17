@@ -43,7 +43,7 @@
                     android:id="@+id/account_name_text_view"
                     style="@style/transactionText.black"
                     android:layout_marginBottom="2dp"
-                    android:text="Account name"
+                    android:text="@string/account_name"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 <TextView
@@ -67,9 +67,9 @@
                 android:id="@+id/available_funds_title"
                 style="@style/transactionText.grey"
                 android:paddingBottom="3dp"
-                android:paddingLeft="65dp"
+                android:paddingLeft="45dp"
                 android:paddingTop="3dp"
-                android:text="Available funds"
+                android:text="@string/available_funds"
                 android:textStyle="bold" />
 
             <TextView
@@ -87,9 +87,9 @@
                 style="@style/transactionText.grey"
                 android:layout_below="@+id/available_funds_title"
                 android:paddingBottom="3dp"
-                android:paddingLeft="65dp"
+                android:paddingLeft="45dp"
                 android:paddingTop="3dp"
-                android:text="Account balance"
+                android:text="@string/account_balance"
                 android:textStyle="bold" />
 
             <TextView
@@ -97,6 +97,27 @@
                 style="@style/transactionText.grey"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/available_funds_text_view"
+                android:paddingBottom="3dp"
+                android:paddingRight="10dp"
+                android:paddingTop="3dp"
+                android:text="$0"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/projected_spend_title"
+                style="@style/transactionText.grey"
+                android:layout_below="@+id/account_balance_title"
+                android:paddingBottom="3dp"
+                android:paddingLeft="45dp"
+                android:paddingTop="3dp"
+                android:text="@string/projected_next_fortnight"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/projected_spend_text_view"
+                style="@style/transactionText.grey"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/account_balance_text_view"
                 android:paddingBottom="3dp"
                 android:paddingRight="10dp"
                 android:paddingTop="3dp"

@@ -22,6 +22,9 @@ class AccountDetailsViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.account_balance_text_view)
     TextView accountBalanceTextView;
 
+    @BindView(R.id.projected_spend_text_view)
+    TextView projectedSpendTextView;
+
     public AccountDetailsViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);

@@ -2,4 +2,9 @@
     <string name="app_name">CBA</string>
     <string name="account_details">Account Details</string>
     <string name="title_activity_maps">Map</string>
+    <string name="account_name">Account name</string>
+    <string name="available_funds">Available funds</string>
+    <string name="account_balance">Account balance</string>
+    <string name="projected_next_fortnight">Projected next fortnight</string>
+    <string name="try_again">Try again</string>
 </resources>

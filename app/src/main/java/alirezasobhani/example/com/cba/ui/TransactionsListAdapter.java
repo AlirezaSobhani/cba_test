@@ -11,6 +11,7 @@ import java.util.List;
 
 import alirezasobhani.example.com.cba.R;
 import alirezasobhani.example.com.cba.model.Account;
+import alirezasobhani.example.com.cba.model.ListItemAccount;
 import alirezasobhani.example.com.cba.model.Transaction;
 import alirezasobhani.example.com.cba.utils.StringUtils;
 import alirezasobhani.example.com.cba.utils.ViewUtils;
@@ -62,12 +63,13 @@ public class TransactionsListAdapter extends RecyclerView.Adapter {
 
         switch (holder.getItemViewType()) {
             case TYPE_ACCOUNT_DETAILS:
-                Account account = (Account) listItems.get(position);
+                ListItemAccount listItemAccount = (ListItemAccount) listItems.get(position);
                 AccountDetailsViewHolder accountDetailsViewHolder = (AccountDetailsViewHolder) holder;
-                accountDetailsViewHolder.accountNameTextView.setText(account.getAccountName());
-                accountDetailsViewHolder.accountNumberTextView.setText(account.getAccountNumber());
-                accountDetailsViewHolder.accountBalanceTextView.setText(ViewUtils.dollarise(account.getBalance()));
-                accountDetailsViewHolder.availableFundTextView.setText(ViewUtils.dollarise(account.getAvailable()));
+                accountDetailsViewHolder.accountNameTextView.setText(listItemAccount.getAccountName());
+                accountDetailsViewHolder.accountNumberTextView.setText(listItemAccount.getAccountNumber());
+                accountDetailsViewHolder.accountBalanceTextView.setText(ViewUtils.dollarise(listItemAccount.getBalance()));
+                accountDetailsViewHolder.availableFundTextView.setText(ViewUtils.dollarise(listItemAccount.getAvailable()));
+                accountDetailsViewHolder.projectedSpendTextView.setText(ViewUtils.dollarise(listItemAccount.getProjectedSpend()));
                 break;
 
             case TYPE_TRANSACTION_DATE:

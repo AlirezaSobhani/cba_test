@@ -67,7 +67,6 @@ public class TransactionsActivity extends AppCompatActivity implements GetTransa
         super.onDestroy();
     }
 
-
     @Override
     public void onResponse(TransactionData transactionsData) {
         List<Object> listItems = ListItemGenerator.getListItems(transactionsData);
